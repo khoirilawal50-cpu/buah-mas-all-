@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshFruit UMKM | Buah Segar Berkualitas</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <div class="logo">Fruit<span>house</span></div>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#parcel">Parcel</a></li>
+          <li><a href="#testimoni">Testimoni</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- CART ICON -->
+      <div class="nav-actions">
+        <button class="cart-btn" onclick="toggleCart()">
+          🛒 <span id="cart-count">0</span>
+        </button>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR CART -->
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Keranjang Belanja</h3>
+      <button class="close-cart" onclick="toggleCart()">✖</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-cart">Keranjang masih kosong.</p>
+    </div>
+
+    <div class="cart-footer">
+      <h4>Total: <span id="cart-total">Rp 0</span></h4>
+      <button class="checkout-btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+      <button class="clear-btn" onclick="clearCart()">Kosongkan Keranjang</button>
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Buah Segar <span>Berkualitas</span> untuk Keluarga Anda sendiri</h1>
+      <p>
+        FreshFruit UMKM hadir menyediakan buah segar pilihan, berkualitas premium,
+        higienis, dan siap antar. Cocok untuk kebutuhan harian, parcel buah,
+        hampers sehat, hingga hadiah spesial untuk orang tercinta.
+      </p>
+      <div class="hero-buttons">
+        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+        <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20buah." target="_blank" class="btn btn-secondary">Pesan via WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?q=80&w=1200&auto=format&fit=crop" alt="Buah Segar">
+    </div>
+  </section>
+
+  <!-- Tentang -->
+  <section id="tentang">
+    <div class="section-title">
+      <h2>Tentang Kami</h2>
+      <p>UMKM buah lokal yang mengutamakan kualitas, kesegaran, dan pelayanan terbaik.</p>
+    </div>
+    <div class="about">
+      <img src="/gambar/p.jpg" alt="Toko Buah">
+      <div class="about-text">
+        <h3>fruit house UMKM</h3>
+        <p>
+          Kami adalah usaha buah lokal yang menyediakan berbagai macam buah segar
+          pilihan dengan kualitas terbaik. Setiap buah dipilih secara teliti agar
+          pelanggan mendapatkan rasa yang manis, segar, dan sehat untuk keluarga.
+        </p>
+        <p>
+          Selain buah kiloan, kami juga menyediakan parcel buah premium untuk hadiah,
+          acara keluarga, kunjungan, dan momen spesial lainnya. Pemesanan mudah,
+          cepat, dan bisa langsung melalui WhatsApp.
+        </p>
+        <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20bertanya%20tentang%20produk." target="_blank" class="btn btn-primary">Hubungi Kami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produk -->
+  <section id="produk">
+    <div class="section-title">
+      <h2>Produk Buah Segar</h2>
+      <p>Pilihan buah berkualitas premium, segar setiap hari, dan siap antar.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <img src="/gambar/melon.jfif" alt="melon madu">
+        <div class="card-content">
+          <h4>melon madu</h4>
+          <div class="price">Rp 22.000 / kg</div>
+          <p>Buah melon segar, manis, dan cocok untuk camilan sehat keluarga.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20melon%20madu." target="_blank" class="mini-btn">Pesan Sekarang</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('melon madu', 22000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/jeruk wo.jfif" alt="Jeruk wogan manis">
+        <div class="card-content">
+          <h4>Jeruk wogan manis</h4>
+          <div class="price">Rp 50.000 / kg</div>
+          <p>Jeruk manis segar dengan rasa alami, kaya vitamin C, dan cocok untuk jus.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Jeruk%20wogan%20manis." target="_blank" class="mini-btn">Pesan Sekarang</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Jeruk wogan manis', 50000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/anggur merah.jfif" alt="Anggur Merah Segar">
+        <div class="card-content">
+          <h4>Anggur Merah Segar</h4>
+          <div class="price">Rp 95.000 / kg</div>
+          <p>Anggur merah premium dengan tekstur juicy dan rasa manis menyegarkan.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Anggur%20Merah%20Segar." target="_blank" class="mini-btn">Pesan Sekarang</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Anggur Merah Segar', 95000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/semangka.jfif" alt="Semangka Merah">
+        <div class="card-content">
+          <h4>Semangka Merah</h4>
+          <div class="price">Rp 13.000 / kg</div>
+          <p>Semangka merah segar, manis alami, dan cocok untuk keluarga saat cuaca panas.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Semangka%20Merah." target="_blank" class="mini-btn">Pesan Sekarang</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Semangka Merah', 13000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcel -->
+  <section id="parcel">
+    <div class="section-title">
+      <h2>Parcel Buah Premium</h2>
+      <p>Hampers buah sehat dan elegan untuk hadiah, kunjungan, atau momen spesial.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <img src="/gambar/parcel  small.jfif" alt="Parcel kecil">
+        <div class="card-content">
+          <h4>Parcel kecil</h4>
+          <div class="price">Rp 120.000</div>
+          <p>Isi buah segar pilihan dengan kemasan cantik dan cocok untuk hadiah sederhana.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Parcel%20kecil." target="_blank" class="mini-btn">Pesan Parcel</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Parcel kecil', 120000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/parcel medium.jfif" alt="Parcel sedang">
+        <div class="card-content">
+          <h4>Parcel sedang</h4>
+          <div class="price">Rp 180.000</div>
+          <p>Parcel buah menengah dengan variasi buah premium dan tampilan lebih elegan.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Parcel%20sedang." target="_blank" class="mini-btn">Pesan Parcel</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Parcel sedang', 180000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/parcell large.jfif" alt="Parcel besar">
+        <div class="card-content">
+          <h4>Parcel besar</h4>
+          <div class="price">Rp 250.000</div>
+          <p>Parcel eksklusif untuk acara spesial, kunjungan keluarga, atau hadiah premium.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Parcel%20besar." target="_blank" class="mini-btn">Pesan Parcel</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Parcel besar', 250000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="/gambar/custom parcel.jfif" alt="Custom Parcel">
+        <div class="card-content">
+          <h4>Custom Parcel</h4>
+          <div class="price">Mulai Rp 150.000</div>
+          <p>Pesan parcel buah sesuai budget dan kebutuhan Anda dengan isi yang bisa disesuaikan.</p>
+          <div class="card-buttons">
+            <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20Custom%20Parcel." target="_blank" class="mini-btn">Custom Sekarang</a>
+            <button class="mini-btn cart-add-btn" onclick="addToCart('Custom Parcel', 150000)">+ Keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keunggulan -->
+  <section>
+    <div class="section-title">
+      <h2>Kenapa Pilih Kami?</h2>
+      <p>Kami berkomitmen memberikan kualitas terbaik untuk pelanggan.</p>
+    </div>
+    <div class="features">
+      <div class="feature-box">
+        <div class="icon">🍎</div>
+        <h4>Buah Selalu Segar</h4>
+        <p>Buah dipilih setiap hari agar kualitas dan rasa tetap terjaga.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">🚚</div>
+        <h4>Siap Antar Cepat</h4>
+        <p>Pemesanan mudah dan pengantaran cepat ke area sekitar Anda.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">🎁</div>
+        <h4>Parcel Elegan</h4>
+        <p>Parcel buah premium dengan kemasan cantik dan berkelas.</p>
+      </div>
+      <div class="feature-box">
+        <div class="icon">💬</div>
+        <h4>Order via WhatsApp</h4>
+        <p>Praktis, cepat, dan langsung terhubung dengan admin kami.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni">
+    <div class="section-title">
+      <h2>Testimoni Pelanggan</h2>
+      <p>Kepuasan pelanggan adalah prioritas utama kami.</p>
+    </div>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"tokone jos, buahe enak, diskonane akehh cah, bakulee guantegg tenan, pelayanane apik cah"</p>
+        <h5>- bizong udenn, Pelanggan</h5>
+      </div>
+      <div class="testimonial">
+        <p>"juannn parsele enak tenan cah gedi-gedi mulus-mulus buahe cah parsele ancen pass"</p>
+        <h5>- de sarep , Pelanggan</h5>
+      </div>
+      <div class="testimonial">
+        <p>"jos tenan iki toko, bakule ramah, guanteng pol, buahe melu ngganteng, rasae rausah di ragukan lagi"</p>
+        <h5>- mbah aura, Pelanggan</h5>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak">
+    <div class="section-title">
+      <h2>Kontak & Lokasi</h2>
+      <p>Hubungi kami untuk pemesanan, pertanyaan, atau kerja sama.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-box">
+        <h3>Informasi Toko</h3>
+        <p><strong>Nama Toko:</strong> fruit house mas all</p>
+        <p><strong>Alamat:</strong> Pasar Tradisional Bulak / Tanjunganom, Kendal, Jawa Tengah</p>
+        <p><strong>WhatsApp:</strong> 0838-4874-3225</p>
+        <p><strong>instagram:</strong> @aldnsrh_ and @nvaaraaaaa</p>
+        <p><strong>Jam Operasional:</strong> 08.00 - 20.00 WIB</p>
+        <p><strong>Email:</strong> aldiannasrullah@gmail.com</p>
+        
+        <p>
+          <a href="https://www.google.com/maps/place/Pasar+Tradisional+Bulak%2Ftanjunganom/@-6.9338446,110.0631215,15.75z/data=!4m15!1m8!3m7!1s0x2e7042569d10c715:0xc96c96dd176ace77!2sJl.+Sikucing+DK,+Kabupaten+Kendal,+Jawa+Tengah,+Indonesia!3b1!8m2!3d-6.9347764!4d110.0700638!16s%2Fg%2F11b6yllv7b!3m5!1s0x2e7043c1160a8559:0xe2077fdbe5775766!8m2!3d-6.9340182!4d110.0646928!16s%2Fg%2F11g9nt8f7x?hl=id-ID&entry=ttu&g_ep=EgoyMDI2MDMzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="mini-btn">
+            📍 Lihat Lokasi di Google Maps
+          </a>
+        </p>
+
+        <br>
+        <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20buah." target="_blank" class="btn btn-secondary">Pesan Sekarang</a>
+      </div>
+
+      <div class="contact-box">
+        <iframe 
+          src="https://www.google.com/maps?q=-6.9340182,110.0646928&z=17&output=embed" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>fruit house UMKM</strong> - Buah Segar Berkualitas untuk Keluarga Anda</p>
+    <p>&copy; 2026 fruit house UMKM. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/6283848743225?text=Halo%20FreshFruit%2C%20saya%20ingin%20pesan%20buah." target="_blank" class="wa-float" title="Chat WhatsApp">
+    💬
+  </a>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
